@@ -1,0 +1,52 @@
+% There are three options in document class: nocopyright, nice, master
+\documentclass[nocopyright,nice]{az}
+\bibliographystyle{plainnat}
+
+\begin{document}
+%==============================================================================
+\title{Numerical Study of\\
+  Magnetohydrodynamic Flows in Astrophysics\\
+  with Spectral Methods}
+\author{Chi-kwan Chan}
+\date{03}{27}{2007}
+
+\department{Physics}
+%\major{Astrophysics} % if the major is not the same as the department
+
+\committee
+  {Dimitrios Psaltis}
+  {Feryal \"Ozel}
+  {Elliott Cheu}
+  {Keith Dienes}
+  {Koen Visscher}
+\twodirectors % no need if there is only one advisor; when enabled,
+              % the first two committee members are the directors
+\maketitle
+%------------------------------------------------------------------------------
+%\include[front]{preface}
+%\include[front]{acknow}
+%\include[front]{dedic}
+\niceinclude[front]{quote} % not shown if disable the nice document option
+
+\tableofcontents\clearpage
+\listoffigures\clearpage
+\listoftables\clearpage
+
+\addcontentsline{toc}{chapter}{ABSTRACT}
+\include[front]{abstract}
+%------------------------------------------------------------------------------
+%\include[intro]{ms}
+
+%\include[eqns]{hydro}
+%\include[eqns]{mhd}
+%...
+%------------------------------------------------------------------------------
+\include[paper1]{ms}
+%\include[paper2]{ms}
+%\include[paper3]{ms}
+%------------------------------------------------------------------------------
+%\appendix
+%\include[back]{pfft}
+%\bibliography{thesis}
+%==============================================================================
+\end{document}
