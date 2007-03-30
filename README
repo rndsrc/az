@@ -1,0 +1,21 @@
+This directory contains a LaTeX document class, az.cls, written for
+Chi-kwan Chan's Ph.D. thesis, and a simple example that uses it.
+
+The document class is based on two style files floating around in the
+Physics and Astronomy Departments at the University of Arizona.  The
+physics style file, az.sty, was originally written by Mike Coffin in
+August 1990; further modifications were made by cjeffery in 1992,
+Shamim Mohamed in Summer 1993, and finally Bill Skaggs in Spring 1995.
+The astronomy style file, thesis.sty, was written by Kim McLeod in
+June 1994; and Brian said that it should be called KiMTeX...
+
+az.cls was written from scratch with format similar to the two style
+files described above.  Its main feature is automatic path forwarding
+in sub-directories.  For example, suppose that you have a published
+paper ms.tex that uses fig1.eps, fig2.eps, ...  You can put all files
+into directory sec/.  The figures will be found automatically without
+modifying the paths in ms.tex.
+
+az.cls is distributed in the hope that it will be useful, but WITHOUT
+ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+FITNESS FOR A PARTICULAR PURPOSE.
