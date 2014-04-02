@@ -242,12 +242,12 @@
   \vspace{24pt}{%
     \parindent\z@
     \ifnum \c@secnumdepth >\m@ne
-      \centerline{\large\bfseries\MakeUppercase{\@chapapp\space\thechapter}}
+      \begin{center}\large\bfseries\uppercase{\@chapapp\space\thechapter}\end{center}
       \par\nobreak
       \vspace{12pt}
     \fi
     \interlinepenalty\@M
-    \centerline{\large\bfseries\MakeUppercase{#1}}
+    \begin{center}\large\bfseries\uppercase{#1}\end{center}
     \par\nobreak
     \vspace{24pt}%
   }%
@@ -282,7 +282,7 @@
 \setlength{\footnotesep}{12pt}
 \long\def\@footnotetext#1{\insert\footins{
   \def\baselinestretch{1.2}\footnotesize
-  \interlinepenalty\interfootnotelinepenalty 
+  \interlinepenalty\interfootnotelinepenalty
   \splittopskip\footnotesep
   \splitmaxdepth \dp\strutbox \floatingpenalty \@MM
   \hsize\columnwidth \@parboxrestore
@@ -353,7 +353,7 @@
     \vspace*{12pt}\@author\\
 
   \vspace*{72pt}
-    
+
     \rule{3in}{.5pt}\\
     \if@nocopyright
       \vspace*{-6pt}\ \\
@@ -431,7 +431,7 @@
     \noindent Final approval and acceptance of this dissertation is
     contingent upon the candidate's submission of the final copies of
     the dissertation to the Graduate College.
-    
+
     \noindent I hereby certify that I have read this dissertation
     prepared under my direction and recommend that it be accepted as
     fulfilling the dissertation requirement.
