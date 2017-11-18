@@ -16,7 +16,7 @@
 ]
 
 %==============================================================================
-% Initialization
+% Initialize and declare options
 %------------------------------------------------------------------------------
 \newif\if@nice        \@nicefalse         % to format the thesis in a nice way
 \newif\if@nocopyright \@nocopyrightfalse  % to leave copyright
@@ -25,19 +25,14 @@
 \newif\if@onedirector \@onedirectortrue   % there is at least advisor
 \newif\if@twodirectors\@twodirectorsfalse % second advisor
 
-%==============================================================================
-% Declaration of Options
-%------------------------------------------------------------------------------
 \DeclareOption{nice}       \@nicetrue
 \DeclareOption{nocopyright}\@nocopyrighttrue
 \DeclareOption{master}     \@mastertrue
 
-%------------------------------------------------------------------------------
-% Execution of Options
 \ProcessOptions
 
 %==============================================================================
-% Package Loading
+% Package loading
 %------------------------------------------------------------------------------
 \if@nice
   \PassOptionsToClass{letterpaper,12pt,twoside,onecolumn,final,openright}
@@ -53,15 +48,15 @@
 \RequirePackage[round,colon,authoryear,sort&compress]{natbib}
 
 %==============================================================================
-% Hacks for Better Directory Handling
+% Hacks for better directory handling
 %------------------------------------------------------------------------------
 % remember current directory.
 \newcommand\@currentdirectory{.}
 \newcommand\h@cksetdir[1]{\renewcommand\@currentdirectory{#1}}
 
 %------------------------------------------------------------------------------
-% hacked include to remember current directory:
-% included stuff appears in new page.
+% Hacked include to remember current directory:
+% included stuff appears in new page
 \newcommand\h@ckinclude[2][.]{
   \h@cksetdir{#1}
   \relax
@@ -72,22 +67,22 @@
   \fi
 }
 
-% single spacing include
+% Single spacing include
 \newcommand\singleinclude[2][.]{
   \singlespacing
   \h@ckinclude[#1]{#2}
   \defaultspacing
 }
 
-% now pack the hacked include and in-line include together:
+% Now pack the hacked include and in-line include together:
 \renewcommand\include{\secdef\h@ckinclude\singleinclude}
 
-% include only when the nice option is set
+% Include only when the nice option is set
 \newcommand\niceinclude[2][.]{\if@nice\include[#1]{#2}\fi}
 
 %------------------------------------------------------------------------------
-% hack includegraphics:
-% so it remember current directory.
+% Hack includegraphics:
+% so it remember current directory
 \newcommand\h@ckincludegraphics{
   \@ifstar{\Gin@cliptrue\Gin@i}{\Gin@clipfalse\Gin@i}
 }
@@ -97,10 +92,10 @@
 }
 
 %==============================================================================
-% Layout / Format
+% Layout/Format
 %------------------------------------------------------------------------------
-% Page Layout:
-% 1 inch = 72 pt.
+% Page layout:
+% 1 inch = 72 pt
 \setlength{\hoffset       }{  0pt}
 \setlength{\voffset       }{  0pt}
 \setlength{\oddsidemargin }{ 36pt}
@@ -131,7 +126,7 @@
 \defaultspacing
 
 %------------------------------------------------------------------------------
-% Page Style:
+% Page style:
 % page numbers in upper-right corner.
 \def\ps@plain{%
   \setlength{\headsep   }{ 20pt}
@@ -179,7 +174,7 @@
 \pagestyle{plain}
 
 %------------------------------------------------------------------------------
-% Table of Contents, etc
+% Table of contents, etc
 \setcounter{secnumdepth}{3}
 
 \renewcommand\contentsname{Table of Contents}
@@ -277,7 +272,7 @@
   {subsubsection}{3}{0pt}{12pt}{12pt}{\centering\normalsize\bfseries}}
 
 %------------------------------------------------------------------------------
-% footnote:
+% Footnote:
 \addtolength{\skip\footins}{12pt}
 \setlength{\footnotesep}{12pt}
 \long\def\@footnotetext#1{\insert\footins{
@@ -291,7 +286,7 @@
 }}
 
 %------------------------------------------------------------------------------
-% bibliography:
+% Bibliography:
 \renewcommand\bibname{References}
 
 \renewenvironment{thebibliography}[1]{\singlespacing%
@@ -314,9 +309,9 @@
 }
 
 %==============================================================================
-% Main Code
+% Main code
 %------------------------------------------------------------------------------
-% Title Page information:
+% Title page information:
 \renewcommand\date[3]{\gdef\@month{#1}\gdef\@date{#2}\gdef\@year{#3}}
 \newcommand\department[1]{\gdef\@department{#1}}
 \newcommand\major[1]{\@majoreqdeptfalse\gdef\@major{#1}}
@@ -340,7 +335,8 @@
   \let\@makestatement\relax
 }
 
-% Make Cover Page:
+%------------------------------------------------------------------------------
+% Make cover page:
 \def\@makecover{
   \newpage
   \singlespacing
@@ -388,11 +384,11 @@
   \defaultspacing
 }
 
-% Make Approval Page
-%   Yes!  I know what I am doing!!!  The extremely dirty trick presented
-%   here makes sure the spacings between each signature lines are the
-%   same; even through there are special characters in your advisor's
-%   name...
+%------------------------------------------------------------------------------
+% Make approval page:
+% Yes!  I know what I am doing!!!  The extremely dirty trick presented here
+% makes sure the spacings between each signature lines are the same; even
+% through there are special characters in your advisor's name...
 \def\@makeapproval{
   \newpage
   \singlespacing
