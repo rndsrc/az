@@ -11,12 +11,12 @@
 
 \ProvidesClass{az}[%
   2007/03/29%
-  University of Arizona%
+  Department of Physics, the University of Arizona%
   Thesis Document Class%
 ]
 
 %==============================================================================
-% Initialize the Code
+% Initialization
 %------------------------------------------------------------------------------
 \newif\if@nice        \@nicefalse         % to format the thesis in a nice way
 \newif\if@nocopyright \@nocopyrightfalse  % to leave copyright
